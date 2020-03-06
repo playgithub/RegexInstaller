@@ -15,7 +15,6 @@
 
 // wxWidgets
 #define WXUSINGDLL
-#define wxUSE_CMDLINE_PARSER
 #include <wx/wx.h>
 #include <wx/listctrl.h>
 #include <wx/cmdline.h>

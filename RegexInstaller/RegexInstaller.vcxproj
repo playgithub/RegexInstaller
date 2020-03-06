@@ -95,7 +95,9 @@
     </ClCompile>
     <ClCompile Include="RegexInstaller\RegexInstaller.cpp" />
     <ClCompile Include="RegexInstaller\RegexInstallerConfig\RegexInstallerConfig.cpp" />
-    <ClCompile Include="Sample\sample_console_cmd_params" />
+    <Text Include="Sample\sample_console_cmd_params">
+      <FileType>Document</FileType>
+    </Text>
     <ClCompile Include="UI\InstallInfoListView\InstallInfoListView.cpp" />
     <ClCompile Include="UI\MainFrame.cpp" />
   </ItemGroup>

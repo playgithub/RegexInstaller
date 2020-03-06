@@ -1,1 +1,1 @@
---console-mode --install-file-path="C:\Users\disc\Dev\Tool\RegexInstaller\RegexInstaller.git\RegexInstaller\Sample\InstallFile.json"
+RegexInstaller.exe --console-mode --install-file-path="C:\Users\disc\Dev\Tool\RegexInstaller\RegexInstaller.git\RegexInstaller\Sample\InstallFile.json"

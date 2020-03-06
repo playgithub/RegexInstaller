@@ -36,9 +36,6 @@
     <ClCompile Include="RegexFileCopy\RegexFileCopy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Sample\sample_console_cmd_params">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RegexInstaller\RegexInstallerConfig\RegexInstallerConfig.h">
@@ -70,5 +67,10 @@
     <ResourceCompile Include="RegexInstaller.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Sample\sample_console_cmd_params">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

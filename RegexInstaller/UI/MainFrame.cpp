@@ -80,15 +80,15 @@ void MainFrame::OnShow(wxShowEvent & event)
 {
     event.Skip();
 
-    if (event.IsShown())
-    {
-        try
-        {
-            _installer.LoadConfig("Config/InstallerConfig.json", "Windows");
-        }
-        catch (std::exception & ex)
-        {
-            wxMessageBox(ex.what());
-        }
-    }
+    //if (event.IsShown())
+    //{
+    //    try
+    //    {
+    //        _installer.LoadConfig("Config/InstallerConfig.json", "Windows");
+    //    }
+    //    catch (std::exception & ex)
+    //    {
+    //        wxMessageBox(ex.what());
+    //    }
+    //}
 }
