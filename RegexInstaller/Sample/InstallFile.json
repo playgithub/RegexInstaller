@@ -1,0 +1,10 @@
+{
+    "InstallItems":
+    [
+        {
+            "SourceRoot": "C:\\Users\\disc\\Dev\\Tool\\RegexInstaller\\RegexInstaller\\Sample",
+            "DestinationRoot": "C:\\Users\\disc\\Apps\\Sample",
+            "RelativePathRegex": ".*\\.txt$"
+        }
+    ]
+}

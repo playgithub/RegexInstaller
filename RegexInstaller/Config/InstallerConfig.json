@@ -1,0 +1,65 @@
+{
+    "Windows":
+    {
+        "boost":
+        {
+            "root": "%USERPROFILE%/Dev/lib/dist/boost_1_72_0/VS2019/x64",
+            "inc": "include/boost-1_72",
+            "lib": "lib",
+            "bin": "lib"
+        },
+        "curl":
+        {
+            "root": "",
+            "inc": "",
+            "lib": "",
+            "bin": ""
+        },
+        "openssl":
+        {
+            "root": "",
+            "inc": "",
+            "lib": "",
+            "bin": ""
+        },
+        "postgresql":
+        {
+            "root": "",
+            "inc": "",
+            "lib": "",
+            "bin": ""
+        },
+        "protobuf":
+        {
+            "root": "",
+            "inc": "",
+            "lib": "",
+            "bin": ""
+        },
+        "rapidjson":
+        {
+            "root": "",
+            "inc": "",
+            "lib": "",
+            "bin": ""
+        },
+        "wxWidgets":
+        {
+            "root": "%USERPROFILE%/Dev/lib/dist/wxWidgets",
+            "inc": "include",
+            "lib": "lib/vc_x64_dll",
+            "bin": "lib/vc_x64_dll"
+        },
+        "zlib":
+        {
+            "root": "",
+            "inc": "",
+            "lib": "",
+            "bin": ""
+        }
+    },
+    "Linux":
+    {
+    
+    }
+}
