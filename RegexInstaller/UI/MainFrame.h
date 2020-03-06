@@ -20,7 +20,7 @@ private: // event handlers
     void OnBtnInstall(wxCommandEvent & event);
     void OnShow(wxShowEvent & event);
 private:
-    wxTextCtrl * _ptcInstallationFilePath;
+    wxTextCtrl * _ptcInstallFilePath;
     InstallInfoListView * _plvInstallInfo;
 private:
     RegexInstaller _installer;

@@ -28,8 +28,8 @@ MainFrame::MainFrame(wxWindow * parent,
         {
             sizer_2->Add(new wxStaticText(this, wxID_ANY, L"Installation File"), 0, wxALL | wxALIGN_CENTER_VERTICAL, 5);
 
-            _ptcInstallationFilePath = new wxTextCtrl(this, wxID_ANY);
-            sizer_2->Add(_ptcInstallationFilePath, 1, wxALIGN_CENTER_VERTICAL);
+            _ptcInstallFilePath = new wxTextCtrl(this, wxID_ANY);
+            sizer_2->Add(_ptcInstallFilePath, 1, wxALIGN_CENTER_VERTICAL);
 
             sizer_2->Add(new wxButton(this, ID_BTN_LOCATE_INSTALLATION_FILE, wxT("&Open")),
                          0,
@@ -56,7 +56,7 @@ void MainFrame::OnBtnLocateInstallationFile(wxCommandEvent & event)
                      "Installation Files (*.json)|*.json", wxFD_OPEN | wxFD_FILE_MUST_EXIST);
     if (dlg.ShowModal() == wxID_OK)
     {
-        _ptcInstallationFilePath->SetValue(dlg.GetPath());
+        _ptcInstallFilePath->SetValue(dlg.GetPath());
     }
 }
 
@@ -64,7 +64,8 @@ void MainFrame::OnBtnInstall(wxCommandEvent & event)
 {
     try
     {
-        _installer.Install("C:\\Users\\disc\\Dev\\Tool\\RegexInstaller\\RegexInstaller\\Sample\\InstallFile.json");
+        wxString path = _ptcInstallFilePath->GetValue();
+        _installer.Install(path.ToStdString());
         wxMessageBox("Install Completed");
     }
     catch (std::exception & ex)

@@ -46,23 +46,23 @@ void RegexInstaller::Install(const std::string & sInstallFilePath) const
 void RegexInstaller::InstallItem(const rapidjson::Value & jvInstallItem) const
 {
     if (!jvInstallItem.IsObject())
-        throw std::runtime_error("Invalid file format (file group)");
+        throw std::runtime_error("Invalid install file (not a json object for InstallItem)");
 
     rapidjson::Value::ConstMemberIterator it;
 
     it = jvInstallItem.FindMember("SourceRoot");
     if (it == jvInstallItem.MemberEnd())
-        throw std::runtime_error("invalid install file (no SourceRoot)");
+        throw std::runtime_error("Invalid install file (no SourceRoot)");
     std::string source_root(it->value.GetString(), it->value.GetStringLength());
 
     it = jvInstallItem.FindMember("DestinationRoot");
     if (it == jvInstallItem.MemberEnd())
-        throw std::runtime_error("invalid install file (no DestinationRoot)");
+        throw std::runtime_error("Invalid install file (no DestinationRoot)");
     std::string destination_root(it->value.GetString(), it->value.GetStringLength());
 
     it = jvInstallItem.FindMember("RelativePathRegex");
     if (it == jvInstallItem.MemberEnd())
-        throw std::runtime_error("invalid install file (no RelativePathRegex)");
+        throw std::runtime_error("Invalid install file (no RelativePathRegex)");
     std::string relative_path_regex(it->value.GetString(), it->value.GetStringLength());
 
     RegexFileCopy c;
