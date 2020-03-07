@@ -2,13 +2,15 @@
 #include <RegexFileCopy/RegexFileCopy.h>
 #include "RegexInstaller.h"
 
+namespace fs = std::filesystem;
+
 void RegexInstaller::LoadConfig(const std::string & sConfigFilePath, const std::string & os)
 {
     if (!_config.LoadFromFile(sConfigFilePath, os))
         throw std::runtime_error("InstallerConfig::LoadFromFile failed");
 }
 
-void RegexInstaller::Install(const std::string & sInstallFilePath) const
+void RegexInstaller::Install(const std::string & sInstallFilePath)
 {
     std::ifstream ifs;
     ifs.open(sInstallFilePath);
@@ -37,6 +39,10 @@ void RegexInstaller::Install(const std::string & sInstallFilePath) const
     if (!jvInstallItems.IsArray())
         throw std::runtime_error("not a json array for InstallItems");
 
+
+    fs::path path(sInstallFilePath);
+    _install_file_directory_path = path.parent_path();
+
     for (rapidjson::Value::ConstValueIterator it = jvInstallItems.Begin();
          it != jvInstallItems.End();
          ++it)
@@ -53,12 +59,22 @@ void RegexInstaller::InstallItem(const rapidjson::Value & jvInstallItem) const
     it = jvInstallItem.FindMember("SourceRoot");
     if (it == jvInstallItem.MemberEnd())
         throw std::runtime_error("Invalid install file (no SourceRoot)");
-    std::string source_root(it->value.GetString(), it->value.GetStringLength());
+    fs::path source_root(it->value.GetString());
+    if (source_root.is_relative())
+    {
+        source_root = _install_file_directory_path / source_root;
+        source_root = fs::canonical(source_root);
+    }
 
     it = jvInstallItem.FindMember("DestinationRoot");
     if (it == jvInstallItem.MemberEnd())
         throw std::runtime_error("Invalid install file (no DestinationRoot)");
-    std::string destination_root(it->value.GetString(), it->value.GetStringLength());
+    fs::path destination_root(it->value.GetString());
+    if (destination_root.is_relative())
+    {
+        destination_root = _install_file_directory_path / destination_root;
+        destination_root = fs::canonical(destination_root);
+    }
 
     it = jvInstallItem.FindMember("RelativePathRegex");
     if (it == jvInstallItem.MemberEnd())

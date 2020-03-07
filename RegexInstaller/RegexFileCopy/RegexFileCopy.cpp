@@ -3,18 +3,18 @@
 
 namespace fs = std::filesystem;
 
-void RegexFileCopy::Copy(const std::string & source_root,
-                         const std::string & destination_root,
+void RegexFileCopy::Copy(const fs::path & source_root,
+                         const fs::path & destination_root,
                          const std::regex & relative_path_regex,
                          std::filesystem::copy_options copy_options)
 {
-    _source_root = source_root;
-
-    if (!fs::exists(_source_root))
+    if (!fs::exists(source_root))
         throw std::invalid_argument("source root not exist");
 
-    if (!fs::is_directory(_source_root))
+    if (!fs::is_directory(source_root))
         throw std::invalid_argument("source root is not a directory");
+
+    _source_root = source_root;
 
     _destination_root = destination_root;
 

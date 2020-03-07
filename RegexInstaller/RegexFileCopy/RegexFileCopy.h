@@ -3,8 +3,8 @@
 class RegexFileCopy
 {
 public:
-    void Copy(const std::string & source_root,
-              const std::string & destination_root,
+    void Copy(const std::filesystem::path & source_root,
+              const std::filesystem::path & destination_root,
               const std::regex & relative_path_regex, // relative to source_root & destination_root, match literally
               std::filesystem::copy_options copy_options);
 private:
