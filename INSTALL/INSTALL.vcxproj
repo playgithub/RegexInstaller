@@ -12,8 +12,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{85B9D758-1A8B-465C-902A-F23019912758}</ProjectGuid>
-    <RootNamespace>RegexInstaller</RootNamespace>
+    <ProjectGuid>{2BEDEEFC-B285-4D30-87E0-EACC0DA15725}</ProjectGuid>
+    <RootNamespace>INSTALL</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -44,14 +44,9 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>.;$(USERPROFILE)\Dev\lib\dist\boost_1_72_0\VS2019\x64\include\boost-1_72;$(USERPROFILE)\Dev\lib\dist\wxWidgets\include;$(USERPROFILE)\Dev\lib\dist\wxWidgets\include\msvc;$(USERPROFILE)\Dev\lib\dist\rapidjson\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(USERPROFILE)\Dev\lib\dist\boost_1_72_0\VS2019\x64\lib;$(USERPROFILE)\Dev\lib\dist\wxWidgets\lib\vc_x64_dll;$(LibraryPath)</LibraryPath>
-    <TargetName>$(ProjectName)-d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>.;$(USERPROFILE)\Dev\lib\dist\boost_1_72_0\VS2019\x64\include\boost-1_72;$(USERPROFILE)\Dev\lib\dist\wxWidgets\include;$(USERPROFILE)\Dev\lib\dist\wxWidgets\include\msvc;$(USERPROFILE)\Dev\lib\dist\rapidjson\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(USERPROFILE)\Dev\lib\dist\boost_1_72_0\VS2019\x64\lib;$(USERPROFILE)\Dev\lib\dist\wxWidgets\lib\vc_x64_dll;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -59,14 +54,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>debug_install.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -76,44 +71,22 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>release_install.bat</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="RegexFileCopy\RegexFileCopy.cpp" />
-    <ClCompile Include="RegexInstallerApp\RegexInstallerApp.cpp" />
-    <ClCompile Include="pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="RegexInstaller\RegexInstaller.cpp" />
-    <ClCompile Include="RegexInstaller\RegexInstallerConfig\RegexInstallerConfig.cpp" />
-    <Text Include="Sample\sample_console_cmd_params">
-      <FileType>Document</FileType>
-    </Text>
-    <ClCompile Include="UI\InstallInfoListView\InstallInfoListView.cpp" />
-    <ClCompile Include="UI\MainFrame.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="RegexFileCopy\RegexFileCopy.h" />
-    <ClInclude Include="RegexInstallerApp\RegexInstallerApp.h" />
-    <ClInclude Include="pch.h" />
-    <ClInclude Include="RegexInstaller\RegexInstaller.h" />
-    <ClInclude Include="RegexInstaller\RegexInstallerConfig\RegexInstallerConfig.h" />
-    <ClInclude Include="targetver.h" />
-    <ClInclude Include="UI\InstallInfoListView\InstallInfoListView.h" />
-    <ClInclude Include="UI\MainFrame.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="RegexInstaller.rc" />
+    <None Include="debug_install.bat" />
+    <None Include="debug_install.json" />
+    <None Include="release_install.bat" />
+    <None Include="release_install.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,0 +1,10 @@
+{
+    "InstallItems":
+    [
+        {
+            "SourceRoot": "..\\x64\\Debug",
+            "DestinationRoot": "C:\\Users\\disc\\Apps\\RegexInstaller",
+            "RelativePathRegex": ".*\\.exe$"
+        }
+    ]
+}

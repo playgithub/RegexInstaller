@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RegexInstaller", "RegexInstaller\RegexInstaller.vcxproj", "{85B9D758-1A8B-465C-902A-F23019912758}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "INSTALL", "INSTALL\INSTALL.vcxproj", "{2BEDEEFC-B285-4D30-87E0-EACC0DA15725}"
+	ProjectSection(ProjectDependencies) = postProject
+		{85B9D758-1A8B-465C-902A-F23019912758} = {85B9D758-1A8B-465C-902A-F23019912758}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -15,6 +20,10 @@ Global
 		{85B9D758-1A8B-465C-902A-F23019912758}.Debug|x64.Build.0 = Debug|x64
 		{85B9D758-1A8B-465C-902A-F23019912758}.Release|x64.ActiveCfg = Release|x64
 		{85B9D758-1A8B-465C-902A-F23019912758}.Release|x64.Build.0 = Release|x64
+		{2BEDEEFC-B285-4D30-87E0-EACC0DA15725}.Debug|x64.ActiveCfg = Debug|x64
+		{2BEDEEFC-B285-4D30-87E0-EACC0DA15725}.Debug|x64.Build.0 = Debug|x64
+		{2BEDEEFC-B285-4D30-87E0-EACC0DA15725}.Release|x64.ActiveCfg = Release|x64
+		{2BEDEEFC-B285-4D30-87E0-EACC0DA15725}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

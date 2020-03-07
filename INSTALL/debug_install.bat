@@ -1,0 +1,1 @@
+"..\x64\Debug\RegexInstaller-d.exe" --console-mode --install-file-path=".\debug_install.json"

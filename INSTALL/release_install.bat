@@ -1,0 +1,1 @@
+"..\x64\Release\RegexInstaller.exe" --console-mode --install-file-path=".\release_install.json"
